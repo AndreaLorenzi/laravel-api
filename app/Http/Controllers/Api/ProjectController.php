@@ -21,4 +21,3 @@ class ProjectController extends Controller
     }
 
 }
-// with('types_id','technologies_id')->
