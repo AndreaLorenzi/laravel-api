@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
-use App\Http\Controllers\Guests\PageController as GuestsPageController;
+use App\Http\Controllers\Guest\PageController as GuestPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ use App\Http\Controllers\Guests\PageController as GuestsPageController;
 |
 */
 
-Route::get('/', [GuestsPageController::class, 'home'])->name('guests.home');
+Route::get('/', [GuestPageController::class, 'home'])->name('guests.home');
 
 Route::get('/admin', [AdminPageController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('admin.dashboard');
 

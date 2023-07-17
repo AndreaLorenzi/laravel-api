@@ -15,9 +15,10 @@ class ProjectController extends Controller
     return response()->json($projects);
     }
 
-    public function show(Project $project)
+    public function show($slug)
     {
-        //
+      $project = Project::where('slug', $slug)->firstOrFail();
+      return response()->json($project);
+  }
     }
 
-}
