@@ -8,6 +8,7 @@ return[
         "last_update"      => "2023-03-27",
         "collaborators"    => "null",
         "description"      => "A clone of the spotify web interface",
+        "image" => "uploads/spotifyweb.png",
         "link_github"      => "https://github.com/AndreaLorenzi/html-css-spotifyweb",
         "technologies" => [1, 2],
         "type_id"          => "1"
@@ -19,6 +20,7 @@ return[
         "last_update"      => "2023-04-27",
         "collaborators"    => "null",
         "description"      => "A minefield clone",
+        "image" => "uploads/campominato.png",
         "technologies" => [1, 2, 3],
         "link_github"      => "https://github.com/AndreaLorenzi/js-campominato-dom",
         "type_id"          => "1"
@@ -31,6 +33,7 @@ return[
         "last_update"      => "2023-05-04",
         "collaborators"    => "null",
         "description"      => "A Facebook clone",
+        "image" => "uploads/socialpost.png",
         "technologies" => [1, 2, 3],
         "link_github"      => "https://github.com/AndreaLorenzi/js-social-posts",
         "type_id"          => "1"
@@ -43,8 +46,8 @@ return[
         "last_update"      => "2023-05-15",
         "collaborators"    => "null",
         "description"      => "A Whatsapp clone",
+        "image" => "uploads/boolzapp.png",
         "technologies" => [4, 5],
-
         "link_github"      => "https://github.com/AndreaLorenzi/vue-boolzapp",
         "type_id"          => "1"
 
@@ -57,6 +60,7 @@ return[
         "last_update"      => "2023-05-31",
         "collaborators"    => "null",
         "description"      => "Avada Restourant Clone",
+        "image" => "uploads/avadarestourant.png",
         "technologies" => [4, 5],
         "link_github"      => "https://github.com/AndreaLorenzi/proj-html-vuejs",
         "type_id"          => "1"
@@ -69,8 +73,8 @@ return[
         "last_update"      => "2023-07-03",
         "collaborators"    => "null",
         "description"      => "A Dc Comics site homepage clone",
+        "image" => "uploads/dc-comics.png",
         "technologies" => [6, 7],
-
         "link_github"      => "https://github.com/AndreaLorenzi/laravel-dc-comics",
         "type_id"          => "2"
     ],
@@ -83,6 +87,7 @@ return[
         "last_update"      => "2023-07-004",
         "collaborators"    => "Andrea Lorenzi, Vincenzo Minardi, Gianluca Ligori, Andrea Serra, Gabriella Valentina",
         "description"      => "A invoices organizer",
+        "image" => "",
         "technologies" => [6, 7],
         "link_github"      => "https://github.com/AndreaLorenzi/laravel-boolean",
         "type_id"          => "3"

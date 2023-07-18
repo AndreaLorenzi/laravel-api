@@ -31,7 +31,7 @@ class ProjectController extends Controller
     ];
     public function index()
     {
-        $projects = Project::paginate(4);
+        $projects = Project::all();
         return view('admin.projects.index', compact('projects'));
     }
     public function create()
@@ -143,7 +143,7 @@ class ProjectController extends Controller
      }
     public function trashed()
     {
-        $trashedProjects = Project::onlyTrashed()->paginate(5);
+        $trashedProjects = Project::onlyTrashed()->all();
          return view('admin.projects.trashed', compact('trashedProjects'));
      }
 

@@ -24,7 +24,7 @@
                 <th scope="col">Technologies</th>
                 <th scope="col">Type</th>
                 <th scope="col">Link</th>
-                <th scope="col">Actions</th>
+                <th class="w-25" scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -84,5 +84,5 @@
             </div>
         </div>
     </div>
-    {{ $trashedProjects->links() }}
+    {{-- {{ $trashedProjects->links() }} --}}
 @endsection
