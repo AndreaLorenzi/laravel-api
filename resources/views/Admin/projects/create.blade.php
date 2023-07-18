@@ -92,6 +92,16 @@
             </div>
         </div>
 
+        <div class="input-group mb-3">
+            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+            <label class="input-group-text" for="image">Upload</label>
+            <div class="invalid-feedback">
+                @error('image')
+                    {{ $message }}
+                @enderror
+            </div>
+        </div>
+
         <div class="mb-3">
             <h3>Technologies</h3>
             @foreach ($technologies as $technology)

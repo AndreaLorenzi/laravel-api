@@ -34,7 +34,6 @@
             </tr>
         </tbody>
     </table>
-    <div class="container">
-        <img class="w-100" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
-    </div>
+
+    <img class="w-100" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
 @endsection

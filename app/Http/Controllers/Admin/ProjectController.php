@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
  use Illuminate\Support\Str;
  use Illuminate\Http\Request;
  use App\Http\Controllers\Controller;
+ use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -16,13 +17,15 @@ class ProjectController extends Controller
         "author"           => "required|string|max:30",
         "collaborators"    => "nullable|string|max:150",
         "description"      => "nullable|string|max:2000",
+        'image' => 'nullable|image|max:1024',
         "link_github"      => "required|string|url|max:150",
+        'technologies' => 'nullable|array',
         "type_id"          => "required|integer|exists:types,id",
     ];
     private $validation_messages = [
         'required'  => 'Il campo :attribute è obbligatorio',
         'min'       => 'Il campo :attribute deve avere almeno :min caratteri',
-        'max'       => 'Il campo :attribute non può superare i :max caratteri',
+        // 'max'       => 'Il campo :attribute non può superare i :max caratteri',
         'url'       => 'Il campo deve essere un url valido',
         'exists'    => 'Valore non valido'
     ];
@@ -41,6 +44,7 @@ class ProjectController extends Controller
     {
         $request->validate($this->validations, $this->validation_messages);
         $data = $request->all();
+        $imagePath = Storage::put('uploads', $data['image']);
         // salvare i dati nel db
          $newProject = new Project();
 
@@ -51,6 +55,7 @@ class ProjectController extends Controller
          $newProject->author        = $data['author'];
         $newProject->collaborators = $data['collaborators'];
         $newProject->description   = $data['description'];
+        $newProject->image         = $imagePath;
         $newProject->link_github   = $data['link_github'];
         $newProject->type_id       = $data['type_id'];
         $newProject->save();
@@ -87,6 +92,18 @@ class ProjectController extends Controller
          $request->validate($this->validations, $this->validation_messages);
 
         $data = $request->all();
+        if ($data['image']) {
+            // salvo la nuova immagine
+            $imagePath = Storage::put('uploads', $data['image']);
+
+            // elimino la vecchia immagine
+            if ($project->image) {
+                Storage::delete($project->image);
+            }
+
+            // aggiorno l'indirizzo della nuova immagine
+            $project->image = $imagePath;
+        }
         // aggiornare i dati nel db
         $project->title         = $data['title'];
         $project->creation_date = $data['creation_date'];
@@ -94,6 +111,7 @@ class ProjectController extends Controller
         $project->author        = $data['author'];
         $project->collaborators = $data['collaborators'];
         $project->description   = $data['description'];
+        $project->image = $imagePath;
         $project->link_github   = $data['link_github'];
         $project->type_id       = $data['type_id'];
         
@@ -131,7 +149,10 @@ class ProjectController extends Controller
 
      public function harddelete($slug)
      {
-         $project = Project::withTrashed()->find($slug);
+        $project = Project::withTrashed()->where('slug', $slug)->first();
+        if ($project->image) {
+            Storage::delete($project->image);
+        }
 
          // se ho il trashed lo inserisco nel harddelete
          $project->technologies()->detach();

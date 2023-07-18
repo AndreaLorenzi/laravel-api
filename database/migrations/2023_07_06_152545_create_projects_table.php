@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Schema;
              $table->string('author', 30);
             $table->string('collaborators', 150)->nullable();
             $table->text('description')->nullable();
+            $table->string('image', 200)->nullable();
             $table->string('link_github', 150);
             $table->softDeletes();
             
